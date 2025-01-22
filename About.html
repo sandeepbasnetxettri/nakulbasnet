@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gauley</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        nav {
+            background-color: #000;
+            color: #fff;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ddd;
+        }
+
+        main {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        main h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        main p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        #about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .about-text h2 {
+            font-size: 24px;
+            color: #00d9ff;
+        }
+
+        .about-text h2 span {
+            color: #333;
+        }
+
+        .about-text h3 {
+            font-size: 18px;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .see-more-btn {
+            background-color: #00d9ff;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .see-more-btn:hover {
+            background-color: #007bb5;
+        }
+
+        #contact {
+            background-color: #333;
+            color: #fff;
+            padding: 2rem;
+        }
+
+        #contact h2 {
+            font-size: 2rem;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+            text-align: left;
+        }
+
+        form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            background-color: #555;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        form button:hover {
+            background-color: #777;
+        }
+
+        @media (max-width: 768px) {
+            #about {
+                text-align: center;
+            }
+
+            .about-text h2,
+            .about-text h3,
+            .about-text p {
+                text-align: center;
+            }
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        .nav-container .links {
+            display: flex;
+        }
+
+        .nav-container .links a {
+            position: relative;
+            font-size: 1.2rem;
+            color: rgb(8, 8, 8);
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 550;
+            transition: 0.3s linear;
+        }
+
+        .nav-container .links a::before {
+            position: absolute;
+            content: "";
+            bottom: -3px;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background-color: #077b32;
+            transition: 0.2s linear;
+        }
+
+        .nav-container .links a:hover::before {
+            width: 100%;
+        }
+
+        .nav-container .links a:hover {
+            color: #077b32;
+        }
+
+        .dropdown {
+            z-index: 100;
+            position: absolute;
+            top: 0;
+            transform: translateY(-500px);
+            width: 100%;
+            height: auto;
+            backdrop-filter: blur(4px) brightness(40%);
+            box-shadow: 0 0 20px black;
+            transition: 0.2s linear;
+        }
+
+        .dropdown .links a {
+            display: flex;
+            color: white;
+            text-decoration: none;
+            justify-content: center;
+            padding: 15px 0;
+            align-items: center;
+            transition: 0.2s linear;
+        }
+
+        .dropdown .links a:hover {
+            background-color: #077b32;
+        }
+
+        @keyframes animate {
+            0% {
+                scale: 1;
+            }
+
+            50% {
+                scale: 1.05;
+            }
+
+            100% {
+                scale: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500"> 
+                Nakul <span>Basnet Kazi</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Home</a>
+                </div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="#">About</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="Game.html">Game</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="TruckPortfolio.html">Truck Portfolio</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Home</a>
+                <a href="#">About</a>
+                <a href="Game.html">Game</a>
+                <a href="TruckPortfolio.html">Truck Portfolio</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <h1>Nakul Basnet</h1>
+        <p>I'm Nakul, a TRUCK DRIVER</p>
+    </main>
+
+    <section id="about">
+        <header>
+            <img src="imga/95261997_116701096690668_1094211556528357376_n.jpg" alt="Profile Picture">
+            <h1>Nakul Basnet </h1>
+            <p>I'm Nakul, a TRUCK DRIVER</p>
+        </header>
+        <div class="about-text">
+            <h2>About <span>Me</span></h2>
+            <h3>Nakul Basnet</h3>
+            <p>
+                Nakul Basnet, a dedicated truck driver, plays an essential role in the transportation industry. With
+                long hours on the road, he ensures goods reach their destinations safely and on time. The life of a
+                truck driver involves navigating through challenging terrains and dealing with unpredictable weather.
+                Despite the challenges, Nakul finds pride in his work, understanding its importance in connecting
+                markets and communities.
+            </p>
+            <a href="https://www.youtube.com/@kazigamingkg" class="see-more-btn">Subscribed Me</a> <br> <br> <br>
+        </div>
+    </section> <br><br>
+    <section id="contact">
+        <h2>Contact</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form> <br><br>
+        <div>Email: sandeepbasnetxettri@gmail.com</div>
+    </section>
+</body>
+
+</html>
